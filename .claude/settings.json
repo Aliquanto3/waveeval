@@ -1,0 +1,27 @@
+{
+  "extraKnownMarketplaces": {
+    "agent-cost-kit": {
+      "source": { "source": "github", "repo": "Aliquanto3/agent-cost-kit" }
+    },
+    "claude-code-mods": {
+      "source": { "source": "github", "repo": "Aliquanto3/claude-code-mods" }
+    }
+  },
+  "enabledPlugins": {
+    "agent-cost-kit@agent-cost-kit": true,
+    "couts-session@agent-cost-kit": true,
+    "diff-replie@claude-code-mods": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(uv run python .claude/cost-kit/controle_rapide.py)"
+    ],
+    "deny": [
+      "Read(./.venv/**)",
+      "Read(./**/__pycache__/**)",
+      "Read(./node_modules/**)",
+      "Read(./.env)",
+      "Read(./.env.*)"
+    ]
+  }
+}
