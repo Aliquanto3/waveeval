@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WaveEval forgée</title>
+<style>
+:root{--bg:#faf7f2;--fg:#1f1c18;--muted:#6b645a;--card:#fff;--line:#e4ddd2;--seal:#9b2226;--seal2:#bb3e03;--ok:#2d6a4f;--no:#9b2226;--warn:#b7791f}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17150f;--fg:#efe9df;--muted:#a59d90;--card:#211e17;--line:#3a352b;--seal:#e05a4f;--seal2:#f08a4b;--ok:#74c69d;--no:#e05a4f;--warn:#e9b44c}}
+:root[data-theme="dark"]{--bg:#17150f;--fg:#efe9df;--muted:#a59d90;--card:#211e17;--line:#3a352b;--seal:#e05a4f;--seal2:#f08a4b;--ok:#74c69d;--no:#e05a4f;--warn:#e9b44c}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.55 Georgia,"Times New Roman",serif}
+main{max-width:860px;margin:0 auto;padding:32px 16px 64px}
+header{display:flex;gap:24px;align-items:center;flex-wrap:wrap;border-bottom:2px solid var(--line);padding-bottom:20px}
+header svg{flex:0 0 150px}
+h1{font-size:2rem;margin:0 0 4px}
+h2{font-size:1.2rem;margin:32px 0 10px;border-left:4px solid var(--seal);padding-left:10px}
+.sub{color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px 18px;margin:10px 0}
+ul{padding-left:20px;margin:6px 0}
+li{margin:4px 0}
+.lock::marker{content:"🔒 "}
+.no::marker{content:"✕ ";color:var(--no)}
+.weak::marker{content:"⚠ ";color:var(--warn)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.8rem;color:var(--seal)}
+.personas{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.p{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px}
+.p b{display:block}
+.p i{color:var(--muted);font-size:.92rem}
+footer{color:var(--muted);font-size:.85rem;margin-top:40px}
+</style>
+</head>
+<body>
+<main>
+<header>
+<svg viewBox="0 0 200 200" width="150" height="150" role="img" aria-label="Sceau HARDENED">
+  <defs><path id="c" d="M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0"/></defs>
+  <path fill="var(--seal)" d="M100 8l11 9 14-4 7 12 15 1 2 15 13 6-3 14 9 11-9 11 3 14-13 6-2 15-15 1-7 12-14-4-11 9-11-9-14 4-7-12-15-1-2-15-13-6 3-14-9-11 9-11-3-14 13-6 2-15 15-1 7-12 14 4z"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="var(--bg)" stroke-width="2" opacity=".6"/>
+  <circle cx="100" cy="100" r="58" fill="none" stroke="var(--bg)" stroke-width="1.5" opacity=".6"/>
+  <text font-family="Georgia,serif" font-size="13" letter-spacing="3" fill="var(--bg)"><textPath href="#c" startOffset="2%">WAVEEVAL · FORGE BMAD · 2026-10-20 ·</textPath></text>
+  <text x="100" y="106" text-anchor="middle" font-family="Georgia,serif" font-weight="bold" font-size="22" fill="var(--bg)" letter-spacing="1">HARDENED</text>
+</svg>
+<div>
+<h1>WaveEval : idée forgée</h1>
+<p class="sub">Une app qui forme au <strong>jugement</strong> en évaluation d'IA générative, construite pour qu'Anaël puisse défendre chaque choix sans agent.</p>
+</div>
+</header>
+
+<h2>Le constat de départ, mesuré</h2>
+<div class="stats">
+  <div class="stat"><b>79 %</b>bonne option reconnue</div>
+  <div class="stat"><b>29 %</b>réponse produite seul</div>
+  <div class="stat"><b>~2 / 4</b>niveau sur les 5 thèmes</div>
+  <div class="stat"><b>0</b>idée fausse à confiance 3</div>
+</div>
+<div class="card">Point aveugle transversal : ne jamais valider l'instrument de mesure (juge, métrique, annotations). Réflexe à corriger : proposer un remède avant le diagnostic. Forces : bons premiers réflexes, intuition statistique venue des winrates de Magic.</div>
+
+<h2>Décisions verrouillées</h2>
+<div class="card"><ul>
+<li class="lock">Former au jugement (décider, justifier, diagnostiquer), pas seulement exposer les bonnes pratiques.</li>
+<li class="lock">Code délégué aux agents ; contenu et décisions d'évaluation par Anaël : rien n'entre qu'il ne sache défendre.</li>
+<li class="lock">Deux étages par module : Comprendre (exposition, QCM), puis Juger (réponse libre d'abord, cas à diagnostiquer, vraie évaluation).</li>
+<li class="lock">Module 1 « Mesurer la mesure », fil rouge de l'app ; jeu public annoté d'abord, puis données du pilote <code>slm-quality-bench</code>.</li>
+<li class="lock">Fin d'un module : nouvelles questions réussies en réponse libre, simulation d'entretien de 10 min, note de décision écrite sans brouillon de Claude.</li>
+<li class="lock">Octobre en local avec clés personnelles ; novembre sur l'hébergement Wavestone (SSO, Azure Foundry), avec l'industrialisation comme second objectif d'apprentissage.</li>
+<li class="lock">Au 31 octobre, point d'étape : module 1 terminé et V1 locale qui le sert.</li>
+</ul></div>
+
+<h2>Rejeté, et pourquoi</h2>
+<div class="card"><ul>
+<li class="no">QCM seul pour se positionner : il mesure la reconnaissance, le geste même du problème.</li>
+<li class="no">Contenu généré par Claude puis validé : reproduirait l'échec de <code>slm-quality-bench</code>.</li>
+<li class="no">Authentification maison en octobre : jetable dès le SSO Wavestone.</li>
+<li class="no">Industrialisation tout de suite : disperse l'effort avant le premier module.</li>
+<li class="no">Module 1 dépendant du pilote Ollama : bloquerait le démarrage.</li>
+</ul></div>
+
+<h2>Points faibles qui ont survécu</h2>
+<div class="card"><ul>
+<li class="weak">La banque de positionnement a été rédigée par Claude ; elle doit être défendue par Anaël avant d'entrer dans l'app, et calibrée sur les collègues.</li>
+<li class="weak">Sans échéance externe, le périmètre peut dériver : le 31 octobre sert de point d'étape.</li>
+<li class="weak">Jeux publics annotés, catalogue Azure Foundry et politique Wavestone : à vérifier, pas encore vérifiés.</li>
+<li class="weak">La simulation d'entretien est jouée par Claude : utile, mais pas un vrai recruteur.</li>
+</ul></div>
+
+<h2>Ont mis l'idée à l'épreuve</h2>
+<div class="personas">
+  <div class="p"><b>📊 Mary, analyste</b><i>« Les preuves ne collent pas avec "je ne suis pas assez bon" : il faut savoir pourquoi. »</i></div>
+  <div class="p"><b>📋 John, chef de produit</b><i>« Tu referais exactement ce qui t'a mené à slm-quality-bench. »</i></div>
+  <div class="p"><b>🎨 Sally, designer UX</b><i>« Le QCM mesurerait la mauvaise compétence. »</i></div>
+  <div class="p"><b>🏗️ Winston, architecte</b><i>« Avec un seul annotateur, tu n'as aucun plafond humain. »</i></div>
+  <div class="p"><b>💼 Claire Roussel, recruteuse</b><i>« Si tu ne tiens pas dix minutes sans ton agent, le dépôt joue contre toi. »</i></div>
+  <div class="p"><b>👩‍🔬 Hélène Marchand, formatrice</b><i>« Celui qui écrit les exercices apprend plus que celui qui les fait. »</i></div>
+  <div class="p"><b>🧭 Karim Benali, consultant concurrent</b><i>« Commence par trois défauts à trouver et tu perds tes collègues en dix minutes. »</i></div>
+  <div class="p"><b>🏢 Nathalie Ferrand, formations internes</b><i>« Dès que tu héberges des comptes, ce n'est plus un projet perso. »</i></div>
+</div>
+
+<footer>Séance bmad-forge-idea des 19 et 20 octobre 2026. Sources : <code>.memlog.md</code>, <code>forged-idea.md</code>, <code>positionnement/</code>.</footer>
+</main>
+</body>
+</html>
