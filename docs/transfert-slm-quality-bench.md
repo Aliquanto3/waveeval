@@ -38,7 +38,7 @@ Seuils fixés par Anaël : accord ≥ 0,95, biais Qwen ≤ 0,05. Opus et MiMo ad
 2. **La stabilité n'est pas la justesse.** Haiku rejoué : 99,7 % de verdicts identiques, et pourtant 7 défauts sur 12 manqués.
 3. **L'intervalle de confiance d'abord.** Avec 50 étiquettes, la marge était d'environ ±10 points, trop pour départager les juges ; avec 100, environ ±6.
 4. **Le critère flou.** Le seul désaccord initial humain/Opus venait d'un critère à deux exigences ; après relecture, l'humain a donné raison au juge. Exercice : réécrire le critère.
-5. **Ce que la grille ne voit pas.** Les notes libres relèvent des défauts qu'aucun critère ne couvre : infidélité au document (7 notes), fautes de langue (5), réponse en anglais (3), dialogues invraisemblables (4).
+5. **Ce que la grille ne voit pas.** Les notes libres des 50 premières étiquettes relèvent des défauts qu'aucun critère ne couvre : infidélité au document (7 notes), fautes de langue (5), réponse en anglais (3), dialogues invraisemblables (4).
 6. **Pourquoi pas un LLM comme étiqueteur ?** Étiqueter avec Claude reviendrait à mesurer Claude contre lui-même ; la référence doit être humaine.
 7. **Les comptages se vérifient par le code**, pas par un juge (slm-quality-bench, `grading/counting.py`).
 
